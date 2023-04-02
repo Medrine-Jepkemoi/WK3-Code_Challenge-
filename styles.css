@@ -44,6 +44,15 @@ body {
   text-align: center;
 }
 
+.sellingTicket {
+  background-color: rgb(190, 50, 22);
+  color: black;
+  width: 100px;
+  border: none;
+  font-size: 12px;
+  padding: 6px;
+}
+
 #otherMovies {
   flex: 1;
   background-color: whitesmoke;
