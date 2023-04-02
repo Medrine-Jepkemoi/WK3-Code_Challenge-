@@ -25,7 +25,11 @@ body {
 
 #firstMovie {
   flex: 2;
-  background-color: black;
+  background-image: url("https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg");
+  background-color: whitesmoke;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #otherMovies {
