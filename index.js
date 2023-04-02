@@ -1,24 +1,29 @@
 const firstDetails = document.querySelector("#firstMovie");
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  const menu = document.querySelector("#movieMenu");
+  //   const menu = document.querySelector("#movieMenu");
 
   //function to renter the first movie's details
   function renderFirstMovieDetails(data) {
     let availableTickets = data.capacity - data.tickets_sold;
-    // const firstDetails = document.querySelector("#firstMovie");
-    let but = document.createElement("button");
-    but.innerHTML = "book a ticket";
-    but.addEventListener("click", () => {
-      availableTickets = availableTickets - 1;
 
-      if (availableTickets > 0) {
-        document.querySelector("#availableTickets").innerHTML = `Available Tickets: ${availableTickets}`;
-      } else {
-        document.querySelector("#availableTickets").innerHTML = `Available Tickets: 0`;
-        but.style.display = "none";
-      }
-    });
+    //Buying a movie ticket
+    // let but = document.createElement("button");
+    // but.textContent = "book a ticket";
+    // but.className = "sellingTicket";
+    // but.addEventListener("click", () => {
+    //   availableTickets = availableTickets - 1;
+
+    //   if (availableTickets > 0) {
+    //     document.querySelector("#availableTickets").innerHTML = `Available Tickets: ${availableTickets}`;
+    //   } else {
+    //     document.querySelector("#availableTickets").innerHTML = `Available Tickets: 0`;
+    //     but.style.display = "none";
+    //   }
+    // });
+
+    //posting each film's image
+    document.querySelector("#firstMovie").style.backgroundImage = `url(${data.poster})`;
 
     firstDetails.innerHTML = `
     
@@ -28,10 +33,23 @@ document.addEventListener("DOMContentLoaded", (e) => {
     <p style="font-size: 12px; margin-bottom: 8px;">Runtime: ${data.runtime}</p>
     <p style="font-size: 12px; margin-bottom: 8px;">Showtime: ${data.showtime}</p>
     <p id="availableTickets" style="font-size: 12px; margin-bottom: 8px;">Available Tickets: ${availableTickets}</p>
+    <button class = "sellingTicket">Book Ticket</button>
     </div>
     `;
 
-    firstDetails.appendChild(but);
+    let but = document.querySelector(".sellingTicket");
+    but.addEventListener("click", () => {
+      availableTickets = availableTickets - 1;
+
+      if (availableTickets > 0) {
+        document.querySelector("#availableTickets").innerHTML = `Available Tickets: ${availableTickets}`;
+      } else {
+        document.querySelector("#availableTickets").innerHTML = `Available Tickets: 0`;
+        but.textContent = "Sold Out";
+      }
+    });
+
+    // firstDetails.appendChild(but);
   }
 
   //function to render one film
